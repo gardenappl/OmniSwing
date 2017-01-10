@@ -1,0 +1,8 @@
+﻿displayName = OmniSwing
+author = goldenapple
+version = 1.5
+homepage = http://forums.terraria.org/index.php?threads/vanilla-tweaks-a-mod-with-no-content.37443/
+hideResources = false
+hideCode = false
+includeSource = true
+buildIgnore = obj\*, bin\*, *.csproj

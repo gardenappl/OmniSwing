@@ -1,0 +1,5 @@
+﻿Makes every weapon in the game auto-swing/auto-shoot.
+
+Because why the heck not?
+
+(note: this mod is disabled on Spears and Magic Missile-type weapons because they get a bit buggy with auto-swing)
