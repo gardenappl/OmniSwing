@@ -1,6 +1,6 @@
 ﻿displayName = OmniSwing
 author = goldenapple
-version = 1.5
+version = 1.6
 homepage = http://forums.terraria.org/index.php?threads/vanilla-tweaks-a-mod-with-no-content.37443/
 hideResources = false
 hideCode = false

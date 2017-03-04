@@ -67,11 +67,17 @@ namespace OmniSwing
 			public override void SetDefaults(Item item)
 			{
 				if(item.damage > 0 && ShouldAutoSwing(item))
+				{
 					item.autoReuse = true;
+				}
 			}
 			
 			static bool ShouldAutoSwing(Item item)
 			{
+				if(item.channel)
+				{
+					return false;
+				}
 				if(item.shoot > 0)
 				{
 					var projectile = new Projectile();
