@@ -12,17 +12,6 @@ namespace OmniSwing
 	{
 //		public static List<int> Spears = new List<int>();
 		
-		public OmniSwing()
-		{
-			Properties = new ModProperties();
-		}
-		
-		public override void Load()
-		{
-			AddGlobalItem("SwingGlobalItem", new SwingGlobalItem());
-		}
-		
-		//please don't kill me for this
 //		public override void PostSetupContent()
 //		{
 //			var bindFlags = BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
@@ -56,36 +45,58 @@ namespace OmniSwing
 //				}
 //			}
 //		}
-//		
+//
 //		public override void Unload()
 //		{
 //			Spears.Clear();
 //		}
-		
-		class SwingGlobalItem : GlobalItem
+	}
+	
+	class SwingGlobalItem : GlobalItem
+	{
+		public override void SetDefaults(Item item)
 		{
-			public override void SetDefaults(Item item)
+			if(ShouldAutoSwing(item))
 			{
-				if(item.damage > 0 && ShouldAutoSwing(item))
-				{
-					item.autoReuse = true;
-				}
+				item.autoReuse = true;
 			}
-			
-			static bool ShouldAutoSwing(Item item)
+		}
+		
+		public override bool CanUseItem(Item item, Player player)
+		{
+			if(ShouldAutoSwing(item))
 			{
-				if(item.channel)
-				{
-					return false;
-				}
-				if(item.shoot > 0)
-				{
-					var projectile = new Projectile();
-					projectile.SetDefaults(item.shoot);
-					//Spears and Magic Missile-type projectiles get buggy with auto-swing
-					return projectile.aiStyle != 9 && projectile.aiStyle != 19;
-				}
-				return true;
+				item.autoReuse = true;
+			}
+			return base.CanUseItem(item, player);
+		}
+		
+		static bool ShouldAutoSwing(Item item)
+		{
+			if(item.damage == 0 || item.summon || item.sentry)
+			{
+				return false;
+			}
+			if(item.shoot > 0)
+			{
+				var projectile = new Projectile();
+				projectile.SetDefaults(item.shoot);
+				//Magic Missile-type projectiles get buggy with auto-swing
+				return projectile.aiStyle != 9;
+			}
+			return true;
+		}
+	}
+	
+	//spear fix by CrimsHallowHero
+	class SwingGlobalProjectile : GlobalProjectile
+	{
+		public override void AI(Projectile projectile)
+		{
+			if((projectile.aiStyle == 19 || projectile.aiStyle == 699) && projectile.timeLeft > Main.player[projectile.owner].itemAnimation)
+			{
+				projectile.timeLeft = Main.player[projectile.owner].itemAnimation;
+				projectile.netUpdate = true;
 			}
 		}
 	}
