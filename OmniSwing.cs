@@ -84,6 +84,10 @@ namespace OmniSwing
 				//Magic Missile-type projectiles get buggy with auto-swing
 				return projectile.aiStyle != 9;
 			}
+			if(item.fishingPole > 0)
+			{
+				return false;
+			}
 			return true;
 		}
 	}
