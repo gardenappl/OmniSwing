@@ -57,26 +57,21 @@ namespace OmniSwing
 		public override void SetDefaults(Item item)
 		{
 			if(ShouldAutoSwing(item))
-			{
 				item.autoReuse = true;
-			}
 		}
 		
 		public override bool CanUseItem(Item item, Player player)
 		{
 			if(ShouldAutoSwing(item))
-			{
 				item.autoReuse = true;
-			}
 			return base.CanUseItem(item, player);
 		}
 		
 		static bool ShouldAutoSwing(Item item)
 		{
-			if(item.damage == 0 || item.summon || item.sentry)
-			{
+			if(item.damage <= 0 || item.summon || item.sentry)
 				return false;
-			}
+			
 			if(item.shoot > 0)
 			{
 				var projectile = new Projectile();
