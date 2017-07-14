@@ -69,17 +69,24 @@ namespace OmniSwing
 		
 		static bool ShouldAutoSwing(Item item)
 		{
-			if(item.damage <= 0 || item.summon || item.sentry)
-				return false;
-			
-			if(item.shoot > 0)
+			try
 			{
-				var projectile = new Projectile();
-				projectile.SetDefaults(item.shoot);
-				//Magic Missile-type projectiles get buggy with auto-swing
-				return projectile.aiStyle != 9;
+				if(item.damage <= 0 || item.summon || item.sentry)
+					return false;
+				
+				if(item.shoot > 0)
+				{
+					var projectile = new Projectile();
+					projectile.SetDefaults(item.shoot);
+					//Magic Missile-type projectiles get buggy with auto-swing
+					return projectile.aiStyle != 9;
+				}
+				return true;
 			}
-			return true;
+			catch(NullReferenceException e)
+			{
+				return false;
+			}
 		}
 	}
 	
