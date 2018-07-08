@@ -1,6 +1,6 @@
 ﻿displayName = OmniSwing
 author = goldenapple
-version = 1.9.1
+version = 1.10
 homepage = http://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#OmniSwing
 hideResources = false
 hideCode = false

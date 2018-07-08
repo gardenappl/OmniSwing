@@ -10,46 +10,9 @@ namespace OmniSwing
 {
 	public class OmniSwing : Mod
 	{
-//		public static List<int> Spears = new List<int>();
-		
-//		public override void PostSetupContent()
-//		{
-//			var bindFlags = BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-//			var field = typeof(ItemLoader).GetField("nextItem", bindFlags);
-//			int itemCount = ItemID.Count;
-//			if(field != null)
-//			{
-//				object o = field.GetValue(null);
-//				if(o is int)
-//				{
-//					itemCount = (int)o;
-//				}
-//			}
-//			else
-//			{
-//				ErrorLogger.Log("[OmniSwing] ItemLoader.nextItem not found! Report this to the mod author!");
-//				ErrorLogger.Log("[OmniSwing] (as a result, modded spears will not work)");
-//			}
-//			for(int i = 0; i < itemCount; i++)
-//			{
-//				var item = new Item();
-//				item.SetDefaults(i);
-//				if(item.shoot > 0)
-//				{
-//					var projectile = new Projectile();
-//					projectile.SetDefaults(item.shoot);
-//					if(projectile.aiStyle == 19)
-//					{
-//						Spears.Add(item.type);
-//					}
-//				}
-//			}
-//		}
-//
-//		public override void Unload()
-//		{
-//			Spears.Clear();
-//		}
+		//Hamstar's Mod Helpers integration
+		public static string GithubUserName { get { return "goldenapple3"; } }
+		public static string GithubProjectName { get { return "OmniSwing"; } }
 	}
 	
 	class SwingGlobalItem : GlobalItem
