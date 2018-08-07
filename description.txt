@@ -1,5 +1,7 @@
-﻿Makes every weapon in the game auto-swing/auto-shoot.
+﻿Makes every weapon in the game auto-swing/auto-shoot. 
 
 Because why the heck not?
+
+NEW IN V2.0: Configurable via /omniSwing command!
 
 Thanks to CrimsHallowHero for fixing spears.

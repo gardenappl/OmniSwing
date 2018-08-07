@@ -1,0 +1,12 @@
+﻿ConfigLineError1=[конфигурация OmniSwing]
+ConfigLineError2=Во время загрузки конфигурации OmniSwing произошла ошибка.
+ConfigLineError3=Эти предметы не были найдены в игре:
+ConfigLineError4=Либо эти моды выключены, либо вы неправильно указали имена предметов.
+
+CommandDescription=Позволяет включать/выключать авто-использование предмета, который вы держите руке.
+CommandWhitelistAdded=OmniSwing включен для предмета: {0}
+CommandWhitelistRemoved=OmniSwing выключен для предмета: {0}
+CommandBlacklistAdded=OmniSwing выключен для предмета: {0}
+CommandBlacklistRemoved=OmniSwing включен для предмета: {0}
+CommandUsage=У вас в руке нет предмета!
+CommandServerOnly=Эту команду может исользовать только владелец сервера.

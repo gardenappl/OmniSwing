@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
-    <ProjectGuid>{EFE25AFF-85C2-424F-A145-9195309B4205}</ProjectGuid>
+    <ProjectGuid>{7C86A562-70DF-405F-811C-C62C4B4C3CFF}</ProjectGuid>
     <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -44,16 +44,21 @@
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="tModLoader">
-      <HintPath>..\..\..\..\..\..\..\Yurik\Steam\SteamApps\common\Terraria\tModLoader.exe</HintPath>
+    <Reference Include="Terraria">
+      <HintPath>..\..\..\..\Steam\SteamApps\common\Terraria\Terraria.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="build.txt" />
     <None Include="description.txt" />
+    <None Include="Localization\en-US.lang" />
+    <None Include="Localization\ru-RU.lang" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OmniSwingCommand.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="OmniSwing.cs" />
+    <Compile Include="SwingHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

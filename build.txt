@@ -1,8 +1,8 @@
 ﻿displayName = OmniSwing
 author = goldenapple
-version = 1.10
+version = 2.0
 homepage = http://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#OmniSwing
 hideResources = false
-hideCode = false
 includeSource = true
-buildIgnore = obj\*, bin\*, *.csproj, .git\*
+buildIgnore = obj\*, bin\*, *.csproj, *.sln, .git\*
+includePDB = true
