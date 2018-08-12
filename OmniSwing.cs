@@ -36,7 +36,7 @@ namespace OmniSwing
 					Config.BlacklistedItemIDs.Remove(itemID);
 					break;
 				case MessageType.WhitelistItemRemove:
-					Config.WhitelistedItemIDs.Add(itemID);
+					Config.WhitelistedItemIDs.Remove(itemID);
 					break;
 			}
 		}
