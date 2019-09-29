@@ -48,36 +48,5 @@ namespace OmniSwing
 			BlacklistItemRemove = 2,
 			WhitelistItemRemove = 3
 		}
-
-		#region Hamstar's Mod Helpers integration
-
-		public static string GithubUserName { get { return "goldenapple3"; } }
-		public static string GithubProjectName { get { return "OmniSwing"; } }
-
-		public static string ConfigFileRelativePath { get { return "Mod Configs/OmniSwing.txt"; } }
-
-		public static void ReloadConfigFromFile()
-		{
-			Config.Load();
-			Config.PrintErrors();
-		}
-
-		public static void ResetConfigFromDefaults()
-		{
-			Config.SetDefaults();
-			Config.SaveConfig();
-		}
-
-		#endregion
-
-		public static void Log(object message)
-		{
-			ErrorLogger.Log(String.Format("[OmniSwing][{0}] {1}", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"), message));
-		}
-
-		public static void Log(string message, params object[] formatData)
-		{
-			ErrorLogger.Log(String.Format("[OmniSwing][{0}] {1}", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"), String.Format(message, formatData)));
-		}
 	}
 }

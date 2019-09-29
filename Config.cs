@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,11 +23,13 @@ namespace OmniSwing
 		static string ConfigFolderPath = Path.Combine(Main.SavePath, "Mod Configs");
 		static string ConfigPath = Path.Combine(ConfigFolderPath, "OmniSwing.txt");
 
+		static ILog Logger = LogManager.GetLogger("OmniSwingConfig");
+
 		public static void Load()
 		{
 			if(!Directory.Exists(ConfigFolderPath))
 			{
-				OmniSwing.Log("Mod Config directory not found, creating...");
+				Logger.Warn("Mod Config directory not found, creating...");
 				Directory.CreateDirectory(ConfigFolderPath);
 			}
 
@@ -37,7 +40,7 @@ namespace OmniSwing
 			}
 			else
 			{
-				OmniSwing.Log("Config file not found, creating default...");
+				Logger.Warn("Config file not found, creating default...");
 				SetDefaults();
 				SaveConfig();
 			}
