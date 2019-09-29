@@ -1,6 +1,6 @@
 ﻿-------------
 
-Config.Config=Item Config
+Config=Item Config
 Config.Whitelist=Whitelist
 Config.Whitelist.Description=Add items here to force them to auto-reuse\n(even if they're not weapons).
 Config.Blacklist=Blacklist

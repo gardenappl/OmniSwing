@@ -9,6 +9,7 @@ using Terraria.ID;
 
 namespace OmniSwing
 {
+	[Label("$Mods.OmniSwing.Config")]
 	class Config : ModConfig
 	{
 		public override ConfigScope Mode => ConfigScope.ClientSide;
