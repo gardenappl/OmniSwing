@@ -4,18 +4,26 @@ using System.Linq;
 using System.Text;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 
 namespace OmniSwing
 {
 	public static class SwingHandler
 	{
-		public static bool ShouldAutoSwing(Item item)
+		public static bool ShouldForceAutoSwing(Item item)
 		{
-			return Config.WhitelistedItemIDs.Contains(item.type) ||
-				(ShouldAutoSwingDefault(item) && !Config.BlacklistedItemIDs.Contains(item.type));
+			if (Config.Instance.Whitelist.Contains(new ItemDefinition(item.type)))
+				return true;
+			else if (Config.Instance.Blacklist.Contains(new ItemDefinition(item.type)))
+				return false;
+
+			if (Config.Instance.EnableWeapons)
+				return ShouldForceAutoSwingDefault(item);
+			else
+				return false;
 		}
 
-		public static bool ShouldAutoSwingDefault(Item item)
+		static bool ShouldForceAutoSwingDefault(Item item)
 		{
 			if(item.damage <= 0 || item.summon || item.sentry)
 				return false;
@@ -34,18 +42,14 @@ namespace OmniSwing
 		{
 			public override bool InstancePerEntity { get { return true; } }
 
-			//public override void SetDefaults(Item item)
-			//{
-			//	if(ShouldAutoSwing(item))
-			//		item.autoReuse = true;
-			//}
+			public override bool CloneNewInstances => true;
 
 			bool RealAutoReuseValue = false;
 			bool FakeAutoReuse = false;
 
 			public override bool CanUseItem(Item item, Player player)
 			{
-				if(ShouldAutoSwing(item))
+				if(ShouldForceAutoSwing(item))
 				{
 					if(!FakeAutoReuse)
 					{
@@ -64,16 +68,6 @@ namespace OmniSwing
 				}
 				return base.CanUseItem(item, player);
 			}
-
-			public override GlobalItem NewInstance(Item item)
-			{
-				return new SwingGlobalItem();
-			}
-
-			public override GlobalItem Clone(Item item, Item itemClone)
-			{
-				return new SwingGlobalItem();
-			}
 		}
 
 		//spear fix by CrimsHallowHero
@@ -82,7 +76,7 @@ namespace OmniSwing
 			public override void AI(Projectile projectile)
 			{
 				if((projectile.aiStyle == 19 || projectile.aiStyle == 699) &&
-					ShouldAutoSwing(Main.player[projectile.owner].HeldItem) &&
+					ShouldForceAutoSwing(Main.player[projectile.owner].HeldItem) &&
 					projectile.timeLeft > Main.player[projectile.owner].itemAnimation)
 				{
 					projectile.timeLeft = Main.player[projectile.owner].itemAnimation;

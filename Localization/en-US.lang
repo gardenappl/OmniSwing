@@ -1,12 +1,9 @@
-﻿ConfigLineError1=[OmniSwing configuration]
-ConfigLineError2=There was an error while loading the OmniSwing configuration file.
-ConfigLineError3=These items weren't loaded:
-ConfigLineError4=Either the mods are disabled, or the names are incorrect.
+﻿-------------
 
-CommandDescription=Allows disabling or enabling OmniSwing on an item you hold in your hand.
-CommandWhitelistAdded={0} added to OmniSwing whitelist.
-CommandWhitelistRemoved={0} removed from OmniSwing whitelist.
-CommandBlacklistAdded={0} added to OmniSwing blacklist.
-CommandBlacklistRemoved={0} removed from OmniSwing blacklist.
-CommandUsage=You're not holding any item!
-CommandServerOnly=This command can only be executed by the server owner.
+Config.Config=Item Config
+Config.Whitelist=Whitelist
+Config.Whitelist.Description=Add items here to force them to auto-reuse\n(even if they're not weapons).
+Config.Blacklist=Blacklist
+Config.Blacklist.Description=Add items here to prevent the OmniSwing mod from affecting them.
+Config.EnableWeapons=Enable for weapons
+Config.EnableWeapons.Description=Automatically enable auto-reuse for all weapons.
