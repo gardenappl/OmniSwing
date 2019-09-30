@@ -1,4 +1,6 @@
 # OmniSwing
+**Note: the project has been [abandoned](https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/page-14).**
+
 **Forum link:** https://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#OmniSwing
 
 A tiny Terraria tML mod that makes every weapon auto-swing.
