@@ -4,4 +4,6 @@ Because why the heck not?
 
 NEW IN V3.0: Configurable via Mod Settings!
 
-Thanks to CrimsHallowHero for fixing spears.
+Special thanks:
+CrimsHallowHero for fixing spears.
+Pop000100 for maintaing the mod.
