@@ -14,8 +14,6 @@ namespace OmniSwing
 	{
 		public override ConfigScope Mode => ConfigScope.ClientSide;
 
-		public static Config Instance;
-
 		[Label("$Mods.OmniSwing.Config.EnableWeapons")]
 		[Tooltip("$Mods.OmniSwing.Config.EnableWeapons.Description")]
 		[DefaultValue(true)]

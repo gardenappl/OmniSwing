@@ -12,12 +12,12 @@ namespace OmniSwing
 	{
 		public static bool ShouldForceAutoSwing(Item item)
 		{
-			if (Config.Instance.Whitelist.Contains(new ItemDefinition(item.type)))
+			if (ModContent.GetInstance<Config>().Whitelist.Contains(new ItemDefinition(item.type)))
 				return true;
-			else if (Config.Instance.Blacklist.Contains(new ItemDefinition(item.type)))
+			else if (ModContent.GetInstance<Config>().Blacklist.Contains(new ItemDefinition(item.type)))
 				return false;
 
-			if (Config.Instance.EnableWeapons)
+			if (ModContent.GetInstance<Config>().EnableWeapons)
 				return ShouldForceAutoSwingDefault(item);
 			else
 				return false;
