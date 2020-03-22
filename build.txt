@@ -4,5 +4,5 @@ version = 3.0.1
 homepage = http://forums.terraria.org/index.php?threads/vanilla-tweaks-other-little-tweak-mods.37443/#OmniSwing
 hideResources = false
 includeSource = true
-buildIgnore = obj\*, bin\*, *.csproj, *.sln, .git\*, *.md
+buildIgnore = build.txt, .gitattributes, .gitignore, .git/, .vs/, .idea/, bin/, obj/, Thumbs.db, *.csproj, .cs, .sln, readme.md
 includePDB = true
