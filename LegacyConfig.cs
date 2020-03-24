@@ -5,6 +5,7 @@ using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader.Config;
+using Terraria.ModLoader;
 
 namespace OmniSwing
 {
@@ -20,13 +21,13 @@ namespace OmniSwing
 		{
 			if(File.Exists(ConfigPath))
 			{
-				OmniSwing.Instance.Logger.Warn("Found legacy config file. Reading...");
+                ModContent.GetInstance<OmniSwing>().Logger.Warn("Found legacy config file. Reading...");
 				ReadLegacyConfig();
 
-				OmniSwing.Instance.Logger.Warn("Migrating to new version");
+                ModContent.GetInstance<OmniSwing>().Logger.Warn("Migrating to new version");
 				MigrateToNewFormat();
 
-				OmniSwing.Instance.Logger.Warn("Migrated, deleting old config file.");
+                ModContent.GetInstance<OmniSwing>().Logger.Warn("Migrated, deleting old config file.");
 				File.Delete(ConfigPath);
 			}
 		}
