@@ -1,13 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\references\tModLoader.targets" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">  
   <PropertyGroup>
     <AssemblyName>OmniSwing</AssemblyName>
     <TargetFramework>net45</TargetFramework>
     <PlatformTarget>x86</PlatformTarget>
     <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <Target Name="BuildMod" AfterTargets="Build">
-    <Exec Command="&quot;$(tMLBuildServerPath)&quot; -build $(ProjectDir) -eac $(TargetPath) -define $(DefineConstants) -unsafe $(AllowUnsafeBlocks)" />
-  </Target>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>D:\Coding\OmniSwing\Backup\</UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>  
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Terraria">
+      <HintPath>..\..\Games\SteamLibrary\steamapps\common\tModLoader\tModLoader.exe</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

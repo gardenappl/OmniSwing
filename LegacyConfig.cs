@@ -1,15 +1,15 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader.Config;
 using Terraria.ModLoader;
+using Newtonsoft.Json;
 
 namespace OmniSwing
 {
-	static class LegacyConfig
+    static class LegacyConfig
 	{
 		static List<ItemDefinition> BlacklistedItemIDs = new List<ItemDefinition>();
 		static List<ItemDefinition> WhitelistedItemIDs = new List<ItemDefinition>();

@@ -57,6 +57,7 @@ namespace OmniSwing
 						FakeAutoReuse = true;
 					}
 					item.autoReuse = true;
+                    item.useTurn = true;
 				}
 				else
 				{
