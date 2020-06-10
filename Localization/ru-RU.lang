@@ -1,9 +1,0 @@
-﻿-------------
-
-Config=Настройки предметов
-Config.Whitelist=Белый список
-Config.Whitelist.Description=Эти предметы обязательно будут авто-юзаться\n(даже если это не оружие).
-Config.Blacklist=Черный список
-Config.Blacklist.Description=OmniSwing никак не повлияет на эти предметы.
-Config.EnableWeapons=Включить для оружия
-Config.EnableWeapons.Description=Все оружие будет авто-реюзаться.
