@@ -1,0 +1,26 @@
+Mods: {
+	OmniSwing: {
+		Config: {
+			$parentVal: Настройки предметов
+
+			Whitelist: {
+				$parentVal: Белый список
+				Description:
+					'''
+					Эти предметы обязательно будут авто-юзаться
+					(даже если это не оружие).
+					'''
+			}
+
+			Blacklist: {
+				$parentVal: Черный список
+				Description: OmniSwing никак не повлияет на эти предметы.
+			}
+
+			EnableWeapons: {
+				$parentVal: Включить для оружия
+				Description: Все оружие будет авто-реюзаться.
+			}
+		}
+	}
+}

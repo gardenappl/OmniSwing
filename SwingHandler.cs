@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
@@ -25,27 +26,29 @@ namespace OmniSwing
 
 		static bool ShouldForceAutoSwingDefault(Item item)
 		{
-			if(item.damage <= 0 || item.summon || item.sentry)
+			Projectile ShotProj = new Projectile();
+			ShotProj.SetDefaults(item.shoot);
+			if (item.damage <= 0 || (item.DamageType == DamageClass.Summon && ShotProj.aiStyle != 165) || item.sentry || item.channel)
 				return false;
 
-			if(item.shoot > 0)
-			{
-				var projectile = new Projectile();
-				projectile.SetDefaults(item.shoot);
-				return projectile.aiStyle != 9;
-			}
-
-			return true;
+			return ShotProj.aiStyle != 9; // return true if not magic missile
 		}
 
 		class SwingGlobalItem : GlobalItem
 		{
-			public override bool InstancePerEntity { get { return true; } }
-
-			public override bool CloneNewInstances => true;
 
 			bool RealAutoReuseValue = false;
 			bool FakeAutoReuse = false;
+
+			public override bool InstancePerEntity => true;
+
+            public override GlobalItem Clone(Item item, Item clonedItem)
+			{
+				SwingGlobalItem clone = (SwingGlobalItem)base.Clone(item, clonedItem);
+				clone.RealAutoReuseValue = false;
+				clone.FakeAutoReuse = false;
+				return clone;
+			}
 
 			public override bool CanUseItem(Item item, Player player)
 			{
