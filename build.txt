@@ -6,4 +6,4 @@ hideResources = false
 hideCode = false
 includeSource = true
 includePDB = true
-buildIgnore = .gitattributes, .gitignore, .git\*, .vs\*, .idea\*, bin\*, obj\*, Thumbs.db, readme.md
+buildIgnore = .gitattributes, .gitignore, .git\*, .vs\*, .idea\*, bin\*, obj\*, Thumbs.db
