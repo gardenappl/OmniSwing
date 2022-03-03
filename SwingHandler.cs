@@ -36,42 +36,14 @@ namespace OmniSwing
 
 		class SwingGlobalItem : GlobalItem
 		{
+            public override bool? CanAutoReuseItem(Item item, Player player)
+            {
+				if (ShouldForceAutoSwing(item))
+					return true;
 
-			bool RealAutoReuseValue = false;
-			bool FakeAutoReuse = false;
-
-			public override bool InstancePerEntity => true;
-
-            public override GlobalItem Clone(Item item, Item clonedItem)
-			{
-				SwingGlobalItem clone = (SwingGlobalItem)base.Clone(item, clonedItem);
-				clone.RealAutoReuseValue = false;
-				clone.FakeAutoReuse = false;
-				return clone;
-			}
-
-			public override bool CanUseItem(Item item, Player player)
-			{
-				if(ShouldForceAutoSwing(item))
-				{
-					if(!FakeAutoReuse)
-					{
-						RealAutoReuseValue = item.autoReuse;
-						FakeAutoReuse = true;
-					}
-					item.autoReuse = true;
-				}
-				else
-				{
-					if(FakeAutoReuse)
-					{
-						item.autoReuse = RealAutoReuseValue;
-						FakeAutoReuse = false;
-					}
-				}
-				return base.CanUseItem(item, player);
-			}
-		}
+                return null;
+            }
+        }
 
 		//spear fix by CrimsHallowHero
 		class SwingGlobalProjectile : GlobalProjectile

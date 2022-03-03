@@ -92,5 +92,15 @@ namespace OmniSwing
 			string json = JsonConvert.SerializeObject(newConfig, ConfigManager.serializerSettings);
 			File.WriteAllText(newConfigPath, json);
 		}
+
+		public static void Unload()
+        {
+			BlacklistedItemIDs.Clear();
+			BlacklistedItemIDs = null;
+			WhitelistedItemIDs.Clear();
+			WhitelistedItemIDs = null;
+			ConfigFolderPath = null;
+			ConfigPath = null;
+        }
 	}
 }

@@ -15,5 +15,10 @@ namespace OmniSwing
 		{
 			LegacyConfig.Load();
 		}
-	}
+
+        public override void Unload()
+        {
+			LegacyConfig.Unload();
+        }
+    }
 }
