@@ -1,25 +1,27 @@
 Mods: {
 	OmniSwing: {
-		Config: {
-			$parentVal: Item Config
+		Configs: {
+			Config: {
+				DisplayName: Item Config
 
-			Whitelist: {
-				$parentVal: Whitelist
-				Description:
-					'''
-					Add items here to force them to auto-reuse
-					(even if they're not weapons).
-					'''
-			}
+				EnableWeapons: {
+					Label: Enable for weapons
+					Tooltip: Automatically enable auto-reuse for all weapons.
+				}
 
-			Blacklist: {
-				$parentVal: Blacklist
-				Description: Add items here to prevent the OmniSwing mod from affecting them.
-			}
+				Whitelist: {
+					Label: Whitelist
+					Tooltip:
+						'''
+						Add items here to force them to auto-reuse
+						(even if they're not weapons).
+						'''
+				}
 
-			EnableWeapons: {
-				$parentVal: Enable for weapons
-				Description: Automatically enable auto-reuse for all weapons.
+				Blacklist: {
+					Label: Blacklist
+					Tooltip: Add items here to prevent the OmniSwing mod from affecting them.
+				}
 			}
 		}
 	}
